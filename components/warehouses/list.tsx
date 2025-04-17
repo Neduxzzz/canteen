@@ -1,8 +1,8 @@
 "use client"
 
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline"
-import { IWarehouseType } from "@/models/warehouseType-model"
-import { IWarehouse } from "@/models/warehouse-model"
+import { IWarehouseType } from "../../models/warehouseType-model"
+import { IWarehouse } from "../../models/warehouse-model"
 import { deleteApi } from "@/utils/server-api"
 
 type IProps = {

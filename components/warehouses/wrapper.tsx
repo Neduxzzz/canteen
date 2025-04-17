@@ -1,6 +1,6 @@
 "use client"
-import { IWarehouseType } from "@/models/warehouseType-model"
-import { IWarehouse } from "@/models/warehouse-model"
+import { IWarehouseType } from "../../models/warehouseType-model"
+import { IWarehouse } from "../../models/warehouse-model"
 import { WarehouseForm } from "./form"
 import { WarehouseList } from "./list"
 import { useEffect, useState } from "react"

@@ -1,8 +1,8 @@
 "use client"
 
 import { IState } from "../../src/types/shared-t"
-import { ICertType } from "@/models/warehouseType-model"
-import { IWarehouses } from "@/models/warehouse-model"
+import { IWarehouseType } from "../../models/warehouseType-model"
+import { IWarehouse } from "../../models/warehouse-model"
 import { SubmitButton } from "../parts/submit-button"
 import { createWarehouses } from "../../actions/warehouses"
 import { useActionState, useEffect, useMemo, useRef, useState } from "react"
@@ -13,8 +13,8 @@ import { TextField } from "../parts/text-field"
 type IProps = {
   warehouseTypes: IWarehouseType[]
   getWarehouseFromApi: () => void
-  setEditWarehouse: (cert?: IWarehouses) => void
-  editWarehouse?: IWarehouses
+  setEditWarehouse: (cert?: IWarehouse) => void
+  editWarehouse?: IWarehouse
 }
 
 const initialState: IState = {
