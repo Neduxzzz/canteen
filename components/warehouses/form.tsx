@@ -23,7 +23,7 @@ const initialState: IState = {
   isSaved: false,
 }
 
-export function Form(props: IProps) {
+export function WarehouseForm(props: IProps) {
   const {
     warehouseTypes,
     getWarehouseFromApi,
@@ -70,7 +70,7 @@ export function Form(props: IProps) {
       </div>
       <div className="grid grid-cols-2">
         <TextField
-          label="Pastaba"
+          label="Kiekis"
           name="company"
           isRequired={true}
           defaultValue={editWarehouse?.company}

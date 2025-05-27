@@ -3,8 +3,8 @@ import { type NextRequest } from "next/server"
 
 export async function GET(request: NextRequest) {
   const warehouseService = new WarehouseService()
-  const Warehouses = await WarehouseService.getCertificates()
-  return Response.json(Warehouses)
+  const warehouses = await warehouseService.getWarehouses()
+  return Response.json(warehouses)
 }
 
 export async function POST(request: NextRequest) {

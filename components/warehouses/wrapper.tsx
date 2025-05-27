@@ -27,7 +27,7 @@ export function Wrapper(props: IProps) {
     <div className="grid gap-y-8">
       <WarehouseForm
         warehouseTypes={warehouseTypes}
-        getWarehousesFromApi={getWarehousesFromApi}
+        getWarehouseFromApi={getWarehousesFromApi}
         setEditWarehouse={setEditWarehouse}
         editWarehouse={editWarehouse}
       />

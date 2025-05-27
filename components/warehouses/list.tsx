@@ -17,7 +17,7 @@ export function WarehouseList(props: IProps) {
     props
 
   const findType = (id?: string) =>
-    warehouseTypes.find((i) => i.id === id)?.title
+    warehouseTypes.find((i) => i.id === id)?.title || "Nežinomas"
 
   const changeWarehouse = (id?: string) => {
     if (!id) return
@@ -37,10 +37,10 @@ export function WarehouseList(props: IProps) {
       <thead className="text-xs text-gray-700 uppercase bg-gray-50">
         <tr>
           <th scope="col" className="px-6 py-3">
-            Tipas
+            Produktas
           </th>
           <th scope="col" className="px-6 py-3">
-            Pavadinimas
+            Kiekis
           </th>
           <th scope="col" className="px-6 py-3">
             Veiksmai
@@ -51,7 +51,7 @@ export function WarehouseList(props: IProps) {
         {warehouses.map((w) => (
           <tr key={w.id}>
             <td className="px-6 py-4">{findType(w.typeId)}</td>
-            <td className="px-6 py-4">{w.name}</td>
+            <td className="px-6 py-4">{w.company}</td>
             <td className="px-6 py-4 flex gap-3">
               <button
                 title="Keisti duomenis"

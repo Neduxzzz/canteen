@@ -11,7 +11,7 @@ const WarehouseTypeSchema = new Schema<IWarehouseType>(
   },
   {
     timestamps: false,
-    collection: "warehouse_types",
+    collection: "warehouses_types",
     strict: true,
     toJSON: {
       versionKey: false,
