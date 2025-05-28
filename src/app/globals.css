@@ -12,3 +12,6 @@ a:visited {
 .article h2 {
   @apply text-2xl font-bold;
 }
+.article h3 {
+  @apply text-xl font-semibold;
+}
