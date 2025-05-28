@@ -1,9 +1,9 @@
-export interface IWarehouseType {
+export interface IMealType {
   id: string
   title: string
 }
 
-export interface IWarehouse {
+export interface IMeal {
   id?: number
   typeId: number
   company: string

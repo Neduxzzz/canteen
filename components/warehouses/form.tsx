@@ -70,7 +70,7 @@ export function WarehouseForm(props: IProps) {
       </div>
       <div className="grid grid-cols-2">
         <TextField
-          label="Kiekis"
+          label="Pastaba"
           name="company"
           isRequired={true}
           defaultValue={editWarehouse?.company}

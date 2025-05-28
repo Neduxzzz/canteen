@@ -4,11 +4,15 @@ type IProps = {
   isRequired: boolean
   type?: string
   defaultValue?: string
-  errors?: string[]
+  errors?: string | string[]
 }
 
 export function TextField(props: IProps) {
   const { label, name, defaultValue, errors, isRequired, type } = props
+
+  // Užtikriname, kad `errors` visada būtų masyvas arba undefined
+  const errorMessages = typeof errors === "string" ? [errors] : errors ?? []
+
   return (
     <>
       <label
@@ -25,11 +29,11 @@ export function TextField(props: IProps) {
         name={name}
         defaultValue={defaultValue}
       />
-      {errors ? (
+      {errorMessages.length > 0 && (
         <div className="mt-1 col-span-2 p-1 bg-red-100 italic text-sm">
-          {errors.join(" | ")}
+          {errorMessages.join(" | ")}
         </div>
-      ) : null}
+      )}
     </>
   )
 }

@@ -3,6 +3,12 @@ import { connMongoose } from "@/utils/connect-mongoose"
 import { Types } from "mongoose"
 
 export class WarehouseService {
+  create(data: any) {
+      throw new Error("Method not implemented.")
+  }
+  getAll() {
+      throw new Error("Method not implemented.")
+  }
   async getWarehouses(): Promise<IWarehouse[]> {
     await connMongoose()
     const warehouses = await Warehouse.find().sort({ company: 1 })

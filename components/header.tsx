@@ -1,11 +1,18 @@
-import { CakeIcon } from '@heroicons/react/24/outline';
+import { Nav } from "../components/nav"
+type INav = { title: string; slug: string }
+
+const menu: INav[] = [
+  { title: "Sandelys", slug: "warehouses" },
+  { title: "Produktai", slug: "products" },
+  { title: "Patiekalai", slug: "meals" },
+]
 
 export function Header() {
-    return <header
-    className="border -b border-gray-300 bg-white py-4 shadow-sm">
-        <div className='flex gap-x-2'>
-            <CakeIcon className="h-6 w-6 text-red-700" />
-            <div className='text-2xl text-red-700 font-bold'>Valgykla</div>
-        </div>
-        </header>
+  return (
+    <header className="bg-white border-b-4 border-red-500 shadow-md">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <Nav menu={menu} />
+      </div>
+    </header>
+  )
 }

@@ -5,7 +5,7 @@ import { Footer } from "../../components/footer"
 
 export const metadata: Metadata = {
   title: "Valgykla",
-  description: "Valgykla - maisto užsakymo sistema",
+  description: "Valgykla ",
 }
 
 export default function RootLayout({

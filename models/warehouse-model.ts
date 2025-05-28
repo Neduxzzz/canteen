@@ -2,6 +2,7 @@ import { model, models, Schema } from "mongoose"
 import { ReactNode } from "react"
 
 export interface IWarehouse {
+  _id: string
   name: ReactNode
   id?: string
   typeId: string
