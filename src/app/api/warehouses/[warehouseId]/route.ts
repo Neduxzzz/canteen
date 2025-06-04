@@ -14,12 +14,10 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  context:
-    | { params: { warehouseId: string } }
-    | Promise<{ params: { warehouseId: string } }>
+  context: Promise<{ params: { warehouseId: string } }>
 ) {
-  const { params } = await context
-  const warehouseId = params.warehouseId
+  const resolvedContext = await context
+  const warehouseId = resolvedContext.params.warehouseId
 
   const warehouseService = new WarehouseService()
   await warehouseService.deleteWarehouse(warehouseId)

@@ -1,5 +1,4 @@
 "use client"
-
 import { IState } from "../../src/types/shared-t"
 import { IMealType } from "../../models/mealType-model"
 import { SubmitButton } from "../parts/submit-button"

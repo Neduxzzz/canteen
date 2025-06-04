@@ -10,7 +10,6 @@ type IProps = {
 export function TextField(props: IProps) {
   const { label, name, defaultValue, errors, isRequired, type } = props
 
-  // Užtikriname, kad `errors` visada būtų masyvas arba undefined
   const errorMessages = typeof errors === "string" ? [errors] : errors ?? []
 
   return (
