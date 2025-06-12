@@ -1,26 +1,24 @@
 "use client"
 
+import { deleteApi } from "@/utils/server-api"
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline"
 import { IMealType } from "../../models/mealType-model"
 
 type IProps = {
-  mealTypes: IMealType[]
+  mealTypes?: IMealType[]
   setEditMealType: (mealType: IMealType) => void
   refreshMealTypes: () => void
 }
 
 export function MealList({
-  mealTypes,
+  mealTypes = [],
   setEditMealType,
   refreshMealTypes,
 }: IProps) {
   const removeMealType = async (id?: string) => {
     if (!id) return
     try {
-      const res = await fetch(`/api/meals/${id}`, {
-        method: "DELETE",
-      })
-      if (!res.ok) throw new Error("Ištrynimas nepavyko")
+      await deleteApi(`/api/meals/${id}`, {})
       refreshMealTypes()
     } catch (error) {
       alert("Klaida trinant gaminį: " + (error as Error).message)

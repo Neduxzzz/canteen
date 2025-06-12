@@ -1,10 +1,12 @@
 "use client"
+
 import { IState } from "../../src/types/shared-t"
 import { IMealType } from "../../models/mealType-model"
 import { SubmitButton } from "../parts/submit-button"
 import { createMealType } from "../../actions/meals"
 import { useActionState, useEffect, useRef } from "react"
 import { TextField } from "../parts/text-field"
+import { useBoundStore, useShallow } from "../../store/use-bound-store"
 
 type IProps = {
   mealTypes: IMealType[]
@@ -31,11 +33,19 @@ export function MealForm({
     initialState
   )
 
+  const { setMessage } = useBoundStore(
+    useShallow((state) => ({
+      setMessage: state.setMessage,
+    }))
+  )
+
   useEffect(() => {
     if (state.isSaved) {
       getMealsFromApi()
       ref.current?.reset()
       setEditMealType(undefined)
+
+      setMessage("Valgis sėkmingai išsaugotas")
     }
   }, [state.isSaved])
 

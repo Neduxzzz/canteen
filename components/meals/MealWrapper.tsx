@@ -1,26 +1,23 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { IMealType } from "../../models/mealType-model"
 import { MealForm } from "./MealForm"
 import { MealList } from "./MealList"
+import { getApi } from "@/utils/server-api"
 
-export function MealWrapper() {
-  const [mealTypes, setMealTypes] = useState<IMealType[]>([])
+type Props = {
+  initialMealTypes: IMealType[]
+}
+
+export function MealWrapper({ initialMealTypes }: Props) {
+  const [mealTypes, setMealTypes] = useState<IMealType[]>(initialMealTypes)
   const [editMealType, setEditMealType] = useState<IMealType | undefined>()
 
-  const refreshMealTypes = () => {
-    fetch("/api/meals")
-      .then((res) => res.json())
-      .then((data) => setMealTypes(data))
-      .catch((err) => {
-        console.error("Klaida gaunant duomenis:", err)
-      })
+  const refreshMealTypes = async () => {
+    const updated = await getApi<IMealType[]>("/api/meals")
+    setMealTypes(updated)
   }
-
-  useEffect(() => {
-    refreshMealTypes()
-  }, [])
 
   return (
     <div className="grid gap-y-8">
